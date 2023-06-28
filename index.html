@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the golden cutter</title>
+    <link rel="icon" href="fibonacci.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/6ee533e959.js" crossorigin="anonymous"></script>
+
+<style>
+
+body{
+font-family:monospace;
+background-color: #F0F0F0;
+padding: 10px;}
+  
+
+
+#main {
+
+    border: solid #BA3237 2px;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background-color:  #d3d3d33e;
+   
+
+}
+
+.layerdiv{
+    
+            
+display:flex;}
+            
+.startHeight{height: 50px;}
+.startDiv{background-color: whitesmoke; width: 100%}
+
+    /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+    /* The Modal (background) */
+    .modal2 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* Modal Content */
+.modal-content2 {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  text-align: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* The Close Button */
+.close2 {
+  color: #aaaaaa;
+  text-align: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.close:hover,
+.close:focus {
+  color: #BA3237;
+  text-decoration: none;
+  cursor: pointer;}
+
+  .close2:hover,
+.close2:focus {
+  color: #BA3237;
+
+  text-decoration: none;
+  cursor: pointer;}
+
+
+  #myBtn{
+
+    display: none;
+  }
+
+  .clickable:hover{
+
+    border: whitesmoke 4px solid;
+    border-radius: 5px;
+    position: relative;
+    bottom: 4px;
+
+  }
+
+  img{
+
+  width: inherit;
+
+
+  }
+
+  .button {
+
+    width: 4rem;
+    height: 30px;
+    background-color: #ba3237d8;
+    
+    font-size: medium;
+    font: bolder;
+    color: whitesmoke;
+    font-family:monospace;
+
+    
+    border: solid 0px #ba3237d8;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-right: 1rem;
+    box-shadow: 2px 2px 2px #bbbbbb;
+  }
+
+  .buttonEnd {
+
+width: 4rem;
+height: 30px;
+background-color: #ba3237d8;
+
+font-size: medium;
+font: bolder;
+color: whitesmoke;
+font-family:monospace;
+
+
+border: solid 0px #ba3237d8;
+border-radius: 5px;
+margin-bottom: 20px;
+box-shadow: 2px 2px 2px #bbbbbb;
+}
+
+.button:hover {
+  background-color: #BA3237;
+  cursor: pointer
+  
+
+}
+
+.buttonEnd:hover {
+  background-color: #BA3237;
+  cursor: pointer
+  
+
+}
+
+.button:active {
+
+color:#bbbbbb79;
+background-color: #BA3237
+}
+
+.buttonEnd:active {
+
+color:#bbbbbb79;
+background-color: #BA3237
+}
+
+.total
+{ 
+  font-size: large;
+  font: bolder;
+  font-family:monospace;
+  border: solid 2px #BA3237;
+  border-radius: 5px;
+  height: 17px;
+  width: 4rem;
+  padding: 5px;
+  margin-right: 1.4rem;
+  box-shadow: 2px 2px 2px #bbbbbb;
+}
+  
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 50%; /* Full-width */
+  height: 5px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  border: solid 1px #d3d3d3;
+  border-radius: 5px;
+ 
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 15px; /* Set a specific slider handle width */
+  height: 15px; /* Slider handle height */
+  background:#BA3237; /* Green background */
+  box-shadow: 2px 2px 2px #bbbbbb;
+  cursor: pointer; /* Cursor on hover */
+  border: solid 1px #BA3237;
+  border-radius: 5px;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px; /* Set a specific slider handle width */
+  height: 15px; /* Slider handle height */
+  background: #BA3237;; /* Green background */
+  box-shadow: 2px 2px 2px #bbbbbb;
+  cursor: pointer; /* Cursor on hover */
+  border: solid 1px #BA3237;
+  border-radius: 5px;
+}
+
+#slideContainer{
+
+  display: grid;
+  grid-template-rows: 50px;
+  grid-template-columns: 3fr 2fr;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  position: relative;
+  top: -135px
+}
+
+#textSlider{
+
+  margin-top: 12px;
+  width: 100%;
+}
+
+#heightSlider{
+
+margin-top: 12px;
+width: 100%;
+}
+
+
+
+
+h4 {margin:0px; margin-right: 5px;
+font-size: 12.6px;}
+
+h4:hover{
+  color:#BA3237;
+  cursor: pointer;
+}
+
+
+
+#imgContainer{
+
+/* 
+position: relative;
+left: -17px;
+top: -20px; */
+width: 140px;
+margin-right: 60px;
+margin-bottom: 30px;
+margin-top: 5px;
+
+ 
+ 
+  
+}
+
+
+#headContainer{
+
+
+width: 210px;
+
+
+
+}
+
+h2{
+
+margin-bottom: 100px;
+font-size: 9em;
+
+}
+
+
+
+#menu {
+
+margin-top: 0px;
+margin-bottom: 25px;
+display:grid;
+grid-template-columns: 9rem 9rem auto;
+grid-template-rows: 50px 50px ;
+grid-column-gap: 3.5rem;
+}
+
+#enterTotal {display: flex;
+grid-column-start: 1;
+grid-column-end: 2;
+}
+
+#layerOptions {display: flex;
+grid-column-start: 2;
+grid-column-end: 3;
+}
+
+#fontSize{
+grid-column-start: 1;
+grid-column-end: 2;
+grid-row-start: 2;
+grid-row-end: 3;
+width: 9rem;
+color: #808080;
+
+
+
+}
+
+#boxHeight{
+grid-column-start: 2;
+grid-column-end: 2;
+grid-row-start: 2;
+grid-row-end: 3;
+color: #808080;
+
+}
+
+
+h6{
+
+
+
+margin: 0px;
+
+padding: 0px;
+}
+
+.modal-content2>h2{
+
+margin-top: 0px;
+margin-bottom:5px;
+position:relative;
+top: -15px;
+font-size: 2em;
+
+}
+
+.modal-content>h2{
+
+margin-top: 0px;
+margin-bottom:5px;
+position:relative;
+top: -15px;
+font-size: 2em;
+
+}
+
+
+
+
+
+
+
+
+li{
+
+  margin-bottom: 10px;
+  font-size: 0.6rem;
+
+}
+
+.header{
+
+  width: 100%;
+  display: flex;
+  margin-bottom: 15px;
+
+}
+
+h1 {
+
+  margin-top: 10px;
+  font-size: 30px;
+ 
+
+}
+
+#myBtn2
+{
+position: relative;
+left: 0px;
+top: 10px
+}
+
+#superHeader{
+
+
+display: flex;
+margin-bottom: 10px;
+}
+
+h4>.fa-solid 
+{color:#BA3237}
+
+h5{color: #808080;}
+
+#propertiesGrid{
+
+display: grid;
+grid-template-columns: 3fr 2fr 3fr 2fr;
+grid-template-rows: 2rem 1rem 2rem 1rem 2rem 2rem 2rem;
+grid-gap: 1.4rem;
+}
+
+#nameInput1{
+
+grid-column-start: 1;
+grid-column-end: 3;
+grid-row-start: 1;
+grid-row-end: 2;
+
+
+}
+
+#nameInput2{
+
+grid-column-start: 3;
+grid-column-end: 5;
+grid-row-start: 1;
+grid-row-end: 2;
+
+}
+
+#bgcl{
+
+grid-column-start: 1;
+grid-column-end: 5;
+grid-row-start: 2;
+grid-row-end: 3;
+
+}
+
+#colorLeft{
+
+grid-column-start: 1;
+grid-column-end: 3;
+grid-row-start: 3;
+grid-row-end: 4;
+}
+
+#bgcr{
+
+grid-column-start: 3;
+grid-column-end: 7;
+grid-row-start: 2;
+grid-row-end: 3;
+}
+
+#colorRight{
+
+grid-column-start: 3;
+grid-column-end: 4;
+grid-row-start: 3;
+grid-row-end: 4;
+}
+
+#tcl{
+
+grid-column-start: 1;
+grid-column-end: 5;
+grid-row-start: 4;
+grid-row-end: 5;
+
+
+}
+
+
+#tcolorLeft{
+
+grid-column-start: 1;
+grid-column-end: 2;
+grid-row-start: 5;
+grid-row-end: 6;
+}
+
+#tcr{
+
+grid-column-start: 3;
+grid-column-end: 7;
+grid-row-start: 4;
+grid-row-end: 5;
+
+
+
+}
+
+#tcolorRight{
+
+grid-column-start: 3;
+grid-column-end: 4;
+grid-row-start: 5;
+grid-row-end: 6;
+}
+
+
+
+
+
+</style>    
+
+
+
+</head>
+<body>
+
+      <div id="superHeader">
+      <h1>THE GOLDEN CUTTER</h1> </div>
+      <div class="header"> 
+        <div id="imgContainer">
+          <img src="fibonacci.png" alt="">
+        </div>
+      <div id="headContainer">
+      <h4 onclick="myBtn2.click()">[generating composition sketches based on the dynamic proportions of the golden section] <i class="fa-solid fa-arrow-pointer"></i></h4>  <button style="display: none ;" id="myBtn2" class="buttonEnd"><i class="fa-solid fa-info"></i></button>
+    </div>
+     </div>
+     
+
+     
+    <div id="menu">
+
+    <div id="enterTotal">
+      <input class="total" id="totalInput" value="100" onfocus="scale()" type="text">
+      <button id="calc" class="buttonEnd" onclick="getTotal()"><i class="fa-solid fa-calculator"></i></button>
+    </div>
+
+    <div id="layerOptions">
+      <button class="button" onclick="duplicateLayer(); makemargin()">+</button>
+      <button class="button" onclick="removeLast()">-</button>
+      <button class="buttonEnd" onclick="refresh()"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+     
+    </div>
+    
+          <div id="fontSize"><h4>fontsize</h4> 
+          <input class="slider" id="textSlider" type="range" oninput="changeFontsize()">
+          </div>
+
+           <div id="boxHeight"><h4 id="heightLabel"> boxheight</h4> 
+           <input class="slider" id="heightSlider" type="range" value="3" oninput="changeHeight()">
+           </div>
+          
+
+      </div>
+        
+
+
+      <div id="main">
+
+
+            <div class="layerdiv">
+
+              
+
+                    <div onclick="query(this)" class="startHeight startDiv clickable">
+                      <h3 class="startTotal"></h3>
+                      <p>total</p>
+                    </div>
+
+
+
+
+            </div>
+
+       
+
+
+
+        </div>
+
+
+
+
+
+
+
+ 
+        <!-- Trigger/Open The Modal -->
+<button id="myBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <h6 id="close" class="close">&times;</h6>
+    <h2 style="margin-bottom: 1rem ;">properties</h2>
+    <div id="propertiesGrid">
+    <input id="nameInput1" type="text" placeholder="label left" onkeyup="nameIt1()">
+    <input id="nameInput2" type="text" placeholder="label right"   onkeyup="nameIt2()"> 
+   <article id="bgcl">bgcolor left:</article> <input id="colorLeft" value="#94E3FE" type="color" > 
+   <article id="bgcr">bgcolor right:</article> <input id="colorRight" value="#FFB43F" type="color">
+   <article id="tcl"> textcolor left:</article> <input id="tcolorLeft" value="#000000" type="color" > 
+   <article id="tcr">textcolor right:</article> <input id="tcolorRight" value="#FFFFFF" type="color">
+  </div>
+
+ <div id="posnegbtn"> <button id="btnpos" class="button" onclick="logFromModalPos()">+ -</button>
+  <button id="btnneg"class="button" onclick="logFromModalNeg()" >- +</button></div>
+
+
+  </div>
+
+</div>
+
+        <!-- Trigger/Open The Modal -->
+    
+
+        <!-- The Modal -->
+        <div id="myModal2" class="modal2">
+        
+          <!-- Modal content -->
+          <div class="modal-content2">
+            <h6 id="close2" class="close2">&times;</h6>
+            <h2> how to use </h2>
+            <h4>  </h4>
+
+          <ul>
+            <li>this is a graphical golden-section-calculator for composition sketches</li>
+            <li>generally there is no time unit determined, so it is possible to use this calculation app for any equally spaced time unit like seconds, percent, bars, quarter notes etc. </li>
+            <li>enter the total distance in the input field on the left side and confirm the new value by clicking on the calculator-icon </li>
+            <li>in the mainsection below click on the section labeled "total" to generate a new subdivision</li>
+            <li>choose now the properties in the pop-up menu: add a comment, configure the color scheme and finally select the orientation of the golden section (long/short or short/long) </li>
+            <li>click on one the new emerged sections to generate further subdivisions</li>
+            <li>add multiple layers by clicking on the "+"-icon above the main section, the last layer will be duplicated</li>
+            <li>remove the last layer by clicking on the "-"-icon above the main section</li>
+            <li>adjust all values on the fly by entering and confirming a new total distance</li>
+            <li>reset everything to the default values by clicking on the "refresh"-icon, above the main section</li>
+            
+          </ul>
+
+          </div>
+        
+        </div>
+
+
+        
+
+
+        <script>
+
+let scaledSliderValue
+let sliderValue
+
+let nameSection1
+let nameSection2
+
+let selectedSection        
+let colorLeft= document.getElementById("colorLeft").value
+let colorRight= document.getElementById("colorRight").value
+function makemargin(){
+
+document.querySelectorAll("#main > *").forEach(layer => layer.style.margin="20px 0px 0px 0px");
+document.querySelectorAll("#main > *").forEach(layer => layer.style.border = "solid white 0px")
+document.querySelectorAll("#main > *").forEach(layer => layer.style.borderRadius = "10px")
+document.querySelectorAll("p").forEach(section => section.style.margin="0px")
+document.querySelectorAll("p").forEach(section => section.style.wordBreak="break-all")
+document.querySelectorAll("p").forEach(section => section.style.padding="5px")
+document.querySelectorAll("h3").forEach(section => section.style.margin="0px")
+document.querySelectorAll("h3").forEach(section => section.style.padding="5px")
+
+}
+        function divide()
+        
+        {document.getElementById("myBtn").click();
+        selectedSection = this}
+
+
+
+
+         
+         function duplicateLayer() {
+         const node = document.getElementById("main").lastElementChild;
+         const clone = node.cloneNode(true);
+         document.getElementById("main").appendChild(clone);
+         let sections = document.querySelectorAll(".clickable");
+         console.log(sections);
+         sections.forEach(section=>section.addEventListener("click",divide));
+         sections.forEach(section=>section.addEventListener("click",newquery))}
+
+       function logFromModalPos() 
+  
+       {decider=0;
+        iteration();
+        modal.style.display = "none";
+        const node = selectedSection;
+        node.classList.remove("clickable")
+        const newpdiv = node.cloneNode(true);
+        newpdiv.classList.add("layerdiv");
+        let newdiv1 = document.createElement("div");
+        newdiv1.appendChild(document.createElement("h3")).textContent=length
+        newdiv1.appendChild(document.createElement("p")).textContent=nameSection1
+        let newdiv2 = document.createElement("div");
+        newdiv2.appendChild(document.createElement("h3")).textContent=complement
+        newdiv2.appendChild(document.createElement("p")).textContent=nameSection2
+        
+        colorLeft= document.getElementById("colorLeft").value;
+        colorRight= document.getElementById("colorRight").value;
+        textcolorLeft= document.getElementById("tcolorLeft").value;
+        textcolorRight= document.getElementById("tcolorRight").value;
+        selectedSection.parentElement.appendChild(newpdiv);
+        newpdiv.style.display="flex";
+        newpdiv.appendChild(newdiv1);
+        newpdiv.appendChild(newdiv2);
+        newdiv1.style.backgroundColor = colorLeft;
+        newdiv2.style.backgroundColor = colorRight;
+        newdiv1.style.color = textcolorLeft;
+        newdiv2.style.color = textcolorRight;
+        newdiv1.style.width="61.8%";
+        newdiv1.classList.add("startHeight");
+        newdiv2.style.width="38.2%";
+        newdiv2.classList.add("startHeight");
+        newdiv1.classList.add("clickable");
+        newdiv2.classList.add("clickable");
+        console.log(newpdiv)
+     
+        selectedSection.parentElement.classList.remove("layerdiv")
+        selectedSection.parentElement.classList.remove("clickable")
+        
+        selectedSection.parentElement.replaceChild(newpdiv, selectedSection);
+        const notClickable = document.querySelectorAll(":not(.clickable)>p");
+        notClickable.forEach(text=>text.remove())
+        const notClickable2 = document.querySelectorAll(":not(.clickable)>h3");
+        notClickable2.forEach(text=>text.remove())
+        sections = document.querySelectorAll(".clickable");
+        sections.forEach(section=>section.addEventListener("click",divide));
+        sections.forEach(section=>section.addEventListener("click",newquery));
+
+            
+       
+
+        makemargin();
+        changeHeight();
+      
+
+        
+        }
+        
+     function newquery(){
+
+       
+        query(this)}
+        
+        function logFromModalNeg() 
+
+        {decider=1;
+        iteration2();
+        modal.style.display = "none";
+        const node = selectedSection;
+        node.classList.remove("clickable")
+        const newpdiv = node.cloneNode(true);
+        newpdiv.classList.add("layerdiv");
+        let newdiv1 = document.createElement("div");
+        newdiv1.appendChild(document.createElement("h3")).textContent=length
+        newdiv1.appendChild(document.createElement("p")).textContent=nameSection1
+        let newdiv2 = document.createElement("div");
+        newdiv2.appendChild(document.createElement("h3")).textContent=complement
+        newdiv2.appendChild(document.createElement("p")).textContent=nameSection2
+        
+        colorLeft= document.getElementById("colorLeft").value;
+        colorRight= document.getElementById("colorRight").value;
+        textcolorLeft= document.getElementById("tcolorLeft").value;
+        textcolorRight= document.getElementById("tcolorRight").value;
+        selectedSection.parentElement.appendChild(newpdiv);
+        newpdiv.style.display="flex";
+        newpdiv.appendChild(newdiv1);
+        newpdiv.appendChild(newdiv2);
+        newdiv1.style.backgroundColor = colorLeft;
+        newdiv2.style.backgroundColor = colorRight;
+        newdiv1.style.color = textcolorLeft;
+        newdiv2.style.color = textcolorRight;
+        newdiv1.style.width="38.2%";
+        newdiv1.classList.add("startHeight");
+        newdiv2.style.width="61.8%";
+        newdiv2.classList.add("startHeight");
+        newdiv1.classList.add("clickable");
+        newdiv2.classList.add("clickable");
+        console.log(newpdiv)
+     
+        selectedSection.parentElement.classList.remove("layerdiv")
+        selectedSection.parentElement.classList.remove("clickable")
+        
+        selectedSection.parentElement.replaceChild(newpdiv, selectedSection);
+        const notClickable = document.querySelectorAll(":not(.clickable)>p");
+        notClickable.forEach(text=>text.remove())
+        const notClickable2 = document.querySelectorAll(":not(.clickable)>h3");
+        notClickable2.forEach(text=>text.remove())
+        sections = document.querySelectorAll(".clickable");
+        sections.forEach(section=>section.addEventListener("click",divide));
+        sections.forEach(section=>section.addEventListener("click",newquery));
+
+            
+       
+
+        makemargin();
+        changeHeight();
+        
+
+        
+        }
+        
+        
+
+
+
+
+
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <p> element that closes the modal
+var p = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <p> (x), close the modal
+p.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+// Get the modal
+var modal2 = document.getElementById("myModal2");
+
+// Get the button that opens the modal
+var btn2 = document.getElementById("myBtn2");
+
+// Get the <p> element that closes the modal
+var p2= document.getElementById("close2");
+
+// When the user clicks the button, open the modal 
+btn2.onclick = function() {
+  modal2.style.display = "block";
+}
+
+// When the user clicks on <p> (x), close the modal
+p2.onclick = function() {
+  modal2.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal2.style.display = "none";
+  }
+}
+
+
+
+
+
+
+        //function myFunction() {
+          //const node = document.querySelectorAll("#myList2 li");
+          //node.forEach(el=> document.getElementById("myList1").appendChild(el.cloneNode(true)))}
+
+
+          makemargin()
+
+function changeFontsize(){
+
+sliderValue=document.getElementById("textSlider").value;
+scaledSliderValue=sliderValue*0.3;
+document.getElementById("main").style.fontSize=scaledSliderValue+"px";
+console.log(scaledSliderValue)
+
+}
+
+function nameIt1(){
+
+nameSection1=document.getElementById("nameInput1").value
+
+
+}
+
+function nameIt2(){
+
+nameSection2=document.getElementById("nameInput2").value
+
+
+}
+
+//Calculations
+let a=0
+let i=0
+let length
+let complement
+let totalold
+let total
+
+function scale(){
+totalold=document.getElementById("totalInput").value;}
+
+
+function getTotal(){
+total=document.getElementById("totalInput").value;
+changeNumbers();
+document.querySelector(".startTotal").textContent=total
+}
+function iteration(){
+
+length=barsvalue*0.618
+length= +length.toFixed(2)
+complement=barsvalue*0.382
+complement= +complement.toFixed(2)
+;}
+
+function iteration2(){
+
+length=barsvalue*0.382
+length= +length.toFixed(2)
+complement=barsvalue*0.618
+complement= +complement.toFixed(2)
+;}
+
+
+
+console.log(length)
+
+
+let barsvalue
+let decider=0
+
+function query(a){
+
+console.log("decider: "+decider)
+a.classList.add("temp")
+if(document.querySelector(".temp > h3")!==null){
+barsvalue= document.querySelector(".temp > h3").textContent
+a.classList.remove("temp")
+
+console.log("control"+barsvalue)}
+
+}
+
+let f
+let q
+
+function numberAr(n){q=n.textContent/totalold*total;q= +q.toFixed(2);console.log(q);n.textContent=q}
+function changeNumbers(){
+let allNumbers=document.querySelectorAll("h3")
+allNumbers.forEach(numberAr)
+console.log(allNumbers)}
+
+function removeLast(){
+  const totalLayers=document.querySelectorAll("#main>*").length;
+  if(totalLayers > 1){
+  const lastLayer=document.getElementById("main").lastChild;
+  lastLayer.remove()}
+}
+
+function refresh(){
+
+  window.location.reload()
+
+}
+
+let heightValue
+let scaledHeightValue
+
+function changeHeight(){
+
+heightValue=document.getElementById("heightSlider").value;
+scaledHeightValue=heightValue*2+50
+document.querySelectorAll("#main div").forEach(div=>div.style.height=scaledHeightValue+"px")
+
+console.log(heightValue)
+
+}
+
+
+
+
+window.onload=getTotal();duplicateLayer(); makemargin(); removeLast()
+changeHeight()
+
+
+
+        </script>
+        
+        </body>
+        </html>
